@@ -6,24 +6,24 @@
 <title>Document</title>
 </head>
 <body>
-	<header class="bg-secondary text-white text-center p-4" th:fragment="header">
-		<img src="logo_facultad.png" alt="Logotipo de la Facultad" class="mb-2">
-		<h1>Nombre de la Facultad</h1>
-		<p>Eslogan o lema de la facultad</p>
+	<header class="text-bg-light text-center p-4" th:fragment="header">
+		<img th:src="@{/images/logo.png}" alt="Logotipo de la Facultad" class="mb-2 img-fluid">
+		<h1>Facultad de Ingeniería</h1>
+		<p class="university-motto">“Flammam Tvam Hoc Foco Accende lat”</p>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container">
-				<a class="navbar-brand" href="#">Facultad</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<img th:src="@{/images/logo_fi.png}" alt="Logotipo de la Facultad" width="40" height="40">
+				<!-- <a class="navbar-brand" href="/principal/inicio">Facultad</a> --> 
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item active"><a class="nav-link" href="#">Inicio</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Acerca
-								de</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Carreras</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+						<li class="nav-item active"><a class="nav-link navbar-hover" href="/principal/home">Inicio</a></li>
+						<li class="nav-item"><a class="nav-link navbar-hover" href="#">Acerca de</a></li>
+						<li class="nav-item"><a class="nav-link navbar-hover" href="#">Carreras</a></li>
+						<li class="nav-item"><a class="nav-link navbar-hover" href="#">Noticias</a></li>
+						<li class="nav-item"><a class="nav-link navbar-hover" href="#">Contacto</a></li>
 					</ul>
 				</div>
 			</div>
