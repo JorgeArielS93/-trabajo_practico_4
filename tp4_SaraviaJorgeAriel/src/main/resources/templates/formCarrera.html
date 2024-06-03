@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario De Carrera</title>
+    <link rel="stylesheet" data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <!-- Carga de la hoja de estilos personalizada -->
+    <link rel="stylesheet" type="text/css" data-th-href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+	<div class="row"><header data-th-replace="~{fragments/header::header}"></header> </div>
+
+		<form class="row g-2 mt-2">
+				<h2>Información de la Materia</h2>
+				<div class="col-md-4 form-floating">
+					
+					<input type="text" class="form-control" id="codigoMateria" name="codigoMateria">
+					<label for="codigoMateria" class="form-label label-lg">Código</label>
+				</div>
+				<div class="col-md-6 form-floating">
+					
+					<input type="text" class="form-control" id="nombreMateria" name="nombreMateria">
+					<label for="nombreMateria" class="form-label label-lg h2">Nombre</label>
+				</div>
+				<div class="col-md-2 form-floating">
+					
+					<input type="number" class="form-control" id="añosCarrera" name="añosCarrera">
+					<label for="añosCarrera" class="form-label label-lg h2">Años</label>
+				</div>
+				<div class="col-12">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="boolCarrera" name="boolCarrera">
+						<label class="form-check-label label-lg h2" for="boolCarrera"> Verificación </label>
+					</div>
+				</div>
+				<div class="col-12">
+					<button type="submit" class="btn btn-info btn-lg h3">Agregar</button>
+				</div>
+		</form>
+		<div class="row"><footer data-th-replace="~{fragments/footer::footer}"></footer></div>
+</div>
+<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
