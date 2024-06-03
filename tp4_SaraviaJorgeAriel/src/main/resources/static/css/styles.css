@@ -30,3 +30,6 @@ body {
     text-decoration: none; /* Quitar la línea subrayada */
     color: inherit; /* Mantener el color del enlace */
 }
+.label-lg {
+    font-size: 1.25rem; /* Tamaño de fuente más grande para los labels */
+}
