@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<title>Inicio</title>
+<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- Carga de la hoja de estilos personalizada -->
+<link rel="stylesheet" type="text/css" data-th-href="@{/css/styles.css}">
+<title>Lista De Carreras</title>
+</head>
+<body>
+<div class="container">
+	<div class="row"><header data-th-replace="~{fragments/header::header}"></header> </div>
+	
+		<table class="table table-responsive table-striped bg-white m-0 row">
+			<thead>
+				<tr class="text-center">
+					<th scope="col">ID</th>
+					<th scope="col">ISBN</th>
+					<th scope="col">TITULO</th>
+					<th scope="col">AUTOR</th>
+					<th scope="col">EDITORIAL</th>
+					<th scope="col">AÑO DE PUBLICACIÓN</th>
+					<th scope="col">ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody class="table-group-divider">
+				<tr class="text-center" th:each="l : ${libros}">
+					<td th:text="${l.id}"></td>
+					<td th:text="${l.isbn}"></td>
+					<td th:text="${l.titulo}"></td>
+					<td th:text="${l.autor.nombre}+' '+${l.autor.apellido} "></td>
+					<td th:text="${l.editorial}"></td>
+					<td th:text="${l.anioPublicacion}"></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/libros/modificar/}+${l.id}">MODIFICAR</a> <a
+						class="btn btn-danger" href="#">ELIMINAR</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="row"><footer data-th-replace="~{fragments/footer::footer}"></footer></div>
+</div>
+<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
