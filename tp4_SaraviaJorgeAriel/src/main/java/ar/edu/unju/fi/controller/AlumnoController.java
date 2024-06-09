@@ -37,7 +37,7 @@ public class AlumnoController {
     @PostMapping("/guardarAlumno")
     public ModelAndView postSaveAlumno(@ModelAttribute("alumno") Alumno alumno) {
         if (alumno.getLu() != null && alumno.getLu() > 0) {
-            ListadoAlumnos.getAlumnos().set(alumno.getLu() - 1, alumno);
+        	ListadoAlumnos.actualizarAlumno(alumno);
         } else {
             ListadoAlumnos.agregarUnAlumno(alumno);
         }
