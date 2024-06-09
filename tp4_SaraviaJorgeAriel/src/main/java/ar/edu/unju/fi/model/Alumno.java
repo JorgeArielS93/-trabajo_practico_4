@@ -1,26 +1,42 @@
 package ar.edu.unju.fi.model;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alumno {
 	private int dni;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
-    private String fechaNacimiento;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaNacimiento;
+    
     private String domicilio;
-    private int LU;
+    private Integer lu;
 
     // Constructor
-    public Alumno(int dni, String nombre, String apellido, String email, String telefono, String fechaNacimiento, String domicilio, int LU) {
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.telefono = telefono;
-        this.fechaNacimiento = fechaNacimiento;
-        this.domicilio = domicilio;
-        this.LU = LU;
-    }
+    
+    public Alumno() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Alumno(int dni, String nombre, String apellido, String email, String telefono, LocalDate fechaNacimiento,
+			String domicilio, Integer lu) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.telefono = telefono;
+		this.fechaNacimiento = fechaNacimiento;
+		this.domicilio = domicilio;
+		this.lu = lu;
+	}
 
 	public int getDni() {
 		return dni;
@@ -62,11 +78,11 @@ public class Alumno {
 		this.telefono = telefono;
 	}
 
-	public String getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -78,11 +94,11 @@ public class Alumno {
 		this.domicilio = domicilio;
 	}
 
-	public int getLU() {
-		return LU;
+	public Integer getLu() {
+		return lu;
 	}
 
-	public void setLU(int lU) {
-		LU = lU;
+	public void setLu(Integer lu) {
+		this.lu = lu;
 	}
 }
