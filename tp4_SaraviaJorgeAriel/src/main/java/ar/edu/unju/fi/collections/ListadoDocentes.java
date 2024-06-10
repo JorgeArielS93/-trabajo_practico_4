@@ -51,4 +51,3 @@ public class ListadoDocentes {
         listaDocentes.removeIf(d -> d.getLegajo() == legajo);
     }
 }
-

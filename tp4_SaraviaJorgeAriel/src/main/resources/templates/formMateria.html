@@ -13,6 +13,34 @@
 <div class="container">
 	<div class="row"><header data-th-replace="~{fragments/header::header}"></header> </div>
 	
+	<div class="row mt-5">
+        <h2 th:text="${isEdit} ? 'Modificar Materia' : 'Formulario de Materia'"></h2>
+        <form class="row g-3" th:action="@{/materia/guardarMateria}" th:object="${materia}" method="post">
+            <div class="form-floating col-md-6">
+                <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Nombre" required>
+                <label for="nombre">Nombre</label>
+            </div>
+            <div class="form-floating col-md-6">
+                <input type="text" class="form-control" id="curso" name="curso" th:field="*{curso}" placeholder="Curso" required>
+                <label for="curso">Curso</label>
+            </div>
+            <div class="form-floating col-md-6">
+                <input type="number" class="form-control" id="cantidadHoras" name="cantidadHoras" th:field="*{cantidadHoras}" placeholder="Cantidad de Horas" required>
+                <label for="cantidadHoras">Cantidad de Horas</label>
+            </div>
+            <div class="form-floating col-md-6">
+                <input type="text" class="form-control" id="modalidad" name="modalidad" th:field="*{modalidad}" placeholder="Modalidad" required>
+                <label for="modalidad">Modalidad</label>
+            </div>
+            <div>
+                <input type="hidden" class="form-control" id="codigo" name="codigo" th:field="*{codigo}">
+            </div>
+            <div class="col-12 d-flex justify-content-center gap-2">
+                <input type="submit" class="btn btn-lg btn-success" th:value="${isEdit} ? 'Modificar' : 'Agregar'">
+                <a class="btn btn-lg btn-secondary" href="/materia/listaMaterias">Regresar</a>
+            </div>
+        </form>
+    </div>
 	
 	<div class="row"><footer data-th-replace="~{fragments/footer::footer}"></footer></div>
 </div>
