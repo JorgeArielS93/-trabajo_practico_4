@@ -13,31 +13,33 @@
 <div class="container">
 	<div class="row"><header data-th-replace="~{fragments/header::header}"></header> </div>
 
-		<form class="row g-2 mt-2" th:action="@{/carrera/guardar}">
-				<h2>Información de la Carrera</h2>
-				<div>
-					<input type="hidden" class="form-control" id="codigoMateria" name="codigoMateria">
-				</div>
-			<div class="row">
-				<div class="form-floating mb-3 col-md-6">
-					<input type="text" class="form-control" id="nombreCarrera" placeholder="name@example.com" name="nombreCarrera">
-					<label for="nombreCarrera" class=" label-lg h2">Nombre</label>
-				</div>
-				<div class="form-floating col-md-6">
-					<input type="number" class="form-control" id="añosCarrera" placeholder="Años" name="añosCarrera">
-					<label for="añosCarrera" class="label-lg h2">Años</label>
-				</div>
-				<div class="col-12">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="boolCarrera" name="boolCarrera">
-						<label class="form-check-label label-lg h2" for="boolCarrera">Estado</label>
-					</div>
-				</div>
-			</div>
-			<div class="col-12">
-				<button type="submit" class="btn btn-info btn-lg h3">Agregar</button>
-			</div>
-		</form>
+		<div class="row mt-5">
+        <h2 th:text="${isEdit} ? 'Modificar Carrera' : 'Formulario de Carrera'"></h2>
+        <form class="row g-3" th:action="@{/carrera/guardar}" th:object="${carrera}" method="post">
+            <div>
+                <input type="hidden" class="form-control" id="codigo" name="codigo" th:field="*{codigo}">
+            </div>
+            <div class="form-floating col-md-6">
+                <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Nombre" required>
+                <label for="nombre">Nombre</label>
+            </div>
+            <div class="form-floating col-md-6">
+                <input type="number" class="form-control" id="cantidadAnios" name="cantidadAnios" th:field="*{cantidadAnios}" placeholder="Cantidad de Años" required>
+                <label for="cantidadAnios">Cantidad de Años</label>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="estado" name="estado" th:field="*{estado}">
+                    <label class="form-check-label" for="estado">Estado</label>
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center gap-2">
+                <input type="submit" class="btn btn-lg btn-success" th:value="${isEdit} ? 'Modificar' : 'Agregar'">
+                <a class="btn btn-lg btn-secondary" href="/carrera/listaCarreras">Regresar</a>
+            </div>
+        </form>
+    </div>
+		
 		<div class="row"><footer data-th-replace="~{fragments/footer::footer}"></footer></div>
 </div>
 <script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
