@@ -42,7 +42,6 @@ public class AlumnoController {
             ListadoAlumnos.agregarUnAlumno(alumno);
         }
         ModelAndView mv = new ModelAndView("redirect:listaAlumnos");
-       // mv.addObject("alumnos", ListadoAlumnos.getAlumnos());
         return mv;
     }
     

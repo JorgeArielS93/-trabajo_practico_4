@@ -45,11 +45,12 @@
 							<td th:text="${alumno.telefono}"></td>
 							<td th:text="${alumno.fechaNacimiento}"></td>
 							<td th:text="${alumno.domicilio}"></td>
-							<td><div>
+							<td>
+								<div>
 									<a class="btn btn-warning" th:href="@{/alumno/modificar/}+${alumno.lu}">Editar</a>
-									 <a class="btn btn-danger"  th:href="@{/alumno/borrarAlumno/}+${alumno.lu}" type="button">Eliminar</a> 
-								<!--	<a class="btn btn-danger" th:href="@{/alumno/borrarAlumno/{lu}(lu=${alumno.lu})}" type="button">Eliminar</a> -->
-								</div></td>
+									 <a class="btn btn-danger"  th:href="@{/alumno/borrarAlumno/}+${alumno.lu}" type="button">Eliminar</a>
+								</div>
+							</td>
 						</tr>
 					</tbody>
 				</table>
