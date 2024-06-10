@@ -38,6 +38,7 @@ public class ListadoMaterias {
     /** Agregar una materia */
     public static void agregarUnaMateria(Materia materia) {
         materia.setCodigo(generateCodigo());
+        //materia.setDocente(ListadoDocentes.findDocenteByLegajo(materia.getDocente().getLegajo()));
         listaMaterias.add(materia);
     }
 
