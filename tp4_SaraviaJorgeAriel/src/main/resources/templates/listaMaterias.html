@@ -27,6 +27,7 @@
                         <th scope="col">Curso</th>
                         <th scope="col">Cantidad de Horas</th>
                         <th scope="col">Modalidad</th>
+                        <th scope="col">Docente a Cargo</th>
                         <th scope="col" class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -37,6 +38,7 @@
                         <td th:text="${materia.curso}"></td>
                         <td th:text="${materia.cantidadHoras}"></td>
                         <td th:text="${materia.modalidad}"></td>
+                        <td th:text="${materia.docente.nombre}+' '+${materia.docente.apellido}"></td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-warning me-2" th:href="@{/materia/modificar/}+${materia.codigo}">Editar</a>

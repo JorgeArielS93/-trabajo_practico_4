@@ -16,22 +16,36 @@
 	<div class="row mt-5">
         <h2 th:text="${isEdit} ? 'Modificar Materia' : 'Formulario de Materia'"></h2>
         <form class="row g-3" th:action="@{/materia/guardarMateria}" th:object="${materia}" method="post">
-            <div class="form-floating col-md-6">
+            <div class="form-floating col-md-4">
                 <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Nombre" required>
                 <label for="nombre">Nombre</label>
             </div>
-            <div class="form-floating col-md-6">
+            <div class="form-floating col-md-4">
                 <input type="text" class="form-control" id="curso" name="curso" th:field="*{curso}" placeholder="Curso" required>
                 <label for="curso">Curso</label>
             </div>
-            <div class="form-floating col-md-6">
+            <div class="form-floating col-md-4">
                 <input type="number" class="form-control" id="cantidadHoras" name="cantidadHoras" th:field="*{cantidadHoras}" placeholder="Cantidad de Horas" required>
                 <label for="cantidadHoras">Cantidad de Horas</label>
             </div>
-            <div class="form-floating col-md-6">
-                <input type="text" class="form-control" id="modalidad" name="modalidad" th:field="*{modalidad}" placeholder="Modalidad" required>
+            <div class="form-floating col-md-5">
+                <select class="form-select" id="modalidad" name="modalidad" th:field="*{modalidad}" required>
+                    <option value="" disabled>Seleccionar Modalidad</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Online">Online</option>
+                    <option value="Ambas">Ambas</option>
+                </select>
                 <label for="modalidad">Modalidad</label>
             </div>
+            
+            <div class="form-floating col-md-7">
+                <select class="form-select" id="docente" name="modalidad" th:field="*{docente.legajo}" required>
+                    <option value="" disabled>Seleccionar Docente</option>
+                    <option th:each="d:${docentes}" th:value=${d.legajo} th:text="${d.nombre}+'-'+${d.apellido}"></option>
+                </select>
+                <label for="modalidad">Docente</label>
+            </div>
+            
             <div>
                 <input type="hidden" class="form-control" id="codigo" name="codigo" th:field="*{codigo}">
             </div>

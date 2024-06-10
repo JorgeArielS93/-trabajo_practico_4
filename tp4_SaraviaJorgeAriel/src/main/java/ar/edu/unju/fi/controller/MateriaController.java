@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.collections.ListadoDocentes;
 import ar.edu.unju.fi.collections.ListadoMaterias;
 import ar.edu.unju.fi.model.Materia;
 
@@ -19,6 +20,7 @@ public class MateriaController {
     public ModelAndView getFormulario() {
         ModelAndView mv = new ModelAndView("formMateria");
         mv.addObject("materia", materia);
+        mv.addObject("docentes",ListadoDocentes.getListaDocentes());
         mv.addObject("isEdit", false);
         return mv;
     }
@@ -32,6 +34,7 @@ public class MateriaController {
 
     @PostMapping("/guardarMateria")
     public ModelAndView guardarMateria(@ModelAttribute("materia") Materia materia) {
+    	materia.setDocente(ListadoDocentes.findDocenteByLegajo(materia.getDocente().getLegajo()));
         if (materia.getCodigo() != null && !materia.getCodigo().isEmpty()) {
             ListadoMaterias.actualizarMateria(materia);
         } else {
@@ -44,6 +47,7 @@ public class MateriaController {
     public ModelAndView modificarMateria(@PathVariable("codigo") String codigo) {
         ModelAndView mv = new ModelAndView("formMateria");
         mv.addObject("materia", ListadoMaterias.findMateriaByCodigo(codigo));
+        mv.addObject("docentes",ListadoDocentes.getListaDocentes());
         mv.addObject("isEdit", true);
         return mv;
     }
